@@ -31,6 +31,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="docbot_core.py" />
+    <Compile Include="tests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="youtube.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\3.4" />
