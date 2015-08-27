@@ -175,8 +175,9 @@ class YouTubeSearch:
 
         for search_result in search_response.get("items", []):
             if search_result["id"]["kind"] == "youtube#video":
-                vidid = search_result['id']['videoId']               
-                fake_event = MessageEvent("self", "PRVMSG", ["self", "http://youtu.be/{0}".format(vidid)])
+                vidid = search_result['id']['videoId']
+                vidurl = "http://youtu.be/{0}".format(vidid)         
+                fake_event = MessageEvent("self", "PRVMSG", ["self", vidurl])
                 pretty_ident = YouTubeIdent(fake_event)
 
-                return pretty_ident.pretty
+                return "{0} ( {1} )".format(pretty_ident.pretty,  vidurl)

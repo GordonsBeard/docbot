@@ -20,8 +20,10 @@ class DocBot(bot.SimpleBot):
     
     def on_message(self, event):
         payload = response(event)
-        if payload['message'] != "":
+        try:
             self.send_message(event.target, payload['message'])
+        except:
+            pass
 
 if __name__ == "__main__":
     docbot = DocBot(BOT_NAME)

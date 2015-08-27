@@ -18,9 +18,9 @@ def response(event):
         if re.search(rx, event.message):
             final_message = commands[i](event)
 
-    payload = {"target" : event.target, "message" : final_message.pretty}
-
-    return payload
+    if final_message != "":
+        payload = {"target" : event.target, "message" : final_message.pretty}
+        return payload
 
 if __name__ == "__main__":
     class Event:
