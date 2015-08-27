@@ -8,7 +8,10 @@ Features:
         - log_video():      Logs +1 view for the video in a sqlite3 db.
 """
 
+from apiclient.discovery import build
+from apiclient.errors import HttpError
 from oauth2client.tools import argparser
+
 import datetime, os, re, sqlite3
 from urllib.error import HTTPError
 from urllib.request import urlopen

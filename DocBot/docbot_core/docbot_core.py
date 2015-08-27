@@ -3,10 +3,11 @@
 # pass in a string and where it came from, return the string to send, and the target
 
 import sys, re
-from youtube import YouTubeIdent
+from youtube import YouTubeIdent, YouTubeSearch
 
 commands = [ 
     YouTubeIdent,
+    YouTubeSearch,
             ]
 
 regexes = [rx.regex for rx in commands] if commands is not 0 else None
@@ -16,9 +17,8 @@ def response(event):
     for i, rx in enumerate(regexes):
         if re.search(rx, event.message):
             final_message = commands[i](event)
-            print(final_message.pretty)
 
-    payload = {"target" : event.target, "message" : final_message}
+    payload = {"target" : event.target, "message" : final_message.pretty}
 
     return payload
 
